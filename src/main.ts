@@ -12,7 +12,7 @@ export async function run(): Promise<void> {
   const http = new HttpClient('scotgovcbad/public-ip', undefined, { allowRetries: true, maxRetries: maxRetries });
 
   try {
-    const ipv4 = await http.getJson<IPResponse>('https://api.ipify.org?format=json');
+    const ipv4 = await http.getJson<IPResponse>('https://api.ipify.org/?format=json');
    // const ipv6 = await http.getJson<IPResponse>('https://api6.ipify.org?format=json');
 
     core.setOutput('ipv4', ipv4.result.ip);
