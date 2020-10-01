@@ -9,10 +9,11 @@ import { HttpClient } from '@actions/http-client';
 export async function run(): Promise<void> {
   const maxRetries = parseInt(core.getInput('maxRetries'), 10);
 
-  const http = new HttpClient('scotgovcbad/public-ip', undefined, { allowRetries: true, maxRetries: maxRetries });
+  //const http = new HttpClient('scotgovcbad/public-ip', undefined, { allowRetries: true, maxRetries: maxRetries });
+  const client = new HttpClient();
 
   try {
-    const ipv4 = await http.getJson<Response>('https://cbad-publicipservice.azurewebsites.net/api/getip');
+    const ipv4 = await client.getJson<Response>('https://cbad-publicipservice.azurewebsites.net/api/getip');
 
     core.setOutput('ipv4', ipv4.result.ip);
 
