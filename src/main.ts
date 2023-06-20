@@ -17,7 +17,7 @@ export async function run(): Promise<void> {
 
     core.setOutput('ipv4', ipv4.result.ip);
 
-    core.info(`ipv4: ${ipv4.result.ip}`);
+    core.info(`ipv4: ${ipv4.result.ip} defo getting the right branch, but remember to remove me`);
   } catch (error) {
     core.setFailed(error.message);
   }
